@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team6584.robot.commands.SwagMove;
-import org.usfirst.frc.team6584.robot.subsystems.TestBoard;
+import org.usfirst.frc.team6584.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final TestBoard drivetrain = new TestBoard();
+	public static final DriveTrain drivetrain = new DriveTrain();
 	public static OI oi;
 
     Command autonomousCommand;

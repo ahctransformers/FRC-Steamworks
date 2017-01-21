@@ -11,22 +11,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class TestBoard extends Subsystem {
+public class DriveTrain extends Subsystem {
 	
 	
-	VictorSP motorLeft1;
-	VictorSP motorLeft2;
-	VictorSP motorRight1;
-	VictorSP motorRight2;
+	VictorSP motorLeft;
+	VictorSP motorRight;
 	
 	RobotDrive drivetrain;
 	
-	public TestBoard() {
-		motorLeft1 = new VictorSP(RobotMap.motorLeft1);
-		motorLeft2= new VictorSP(RobotMap.motorLeft2);
-		motorRight1= new VictorSP(RobotMap.motorRight1);
-		motorRight2= new VictorSP(RobotMap.motorRight2);
-		drivetrain= new RobotDrive(motorLeft1, motorLeft2, motorRight1, motorRight2);
+	public DriveTrain() {
+		motorLeft = new VictorSP(RobotMap.motorLeft);
+		motorRight= new VictorSP(RobotMap.motorRight);
+		drivetrain= new RobotDrive(motorLeft, motorRight);
 		
 	}
 	
