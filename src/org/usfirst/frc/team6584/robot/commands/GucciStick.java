@@ -21,7 +21,7 @@ public class GucciStick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.moveTank(Robot.oi.DRIVER_GAMEPAD.getAxis(Gamepad.leftStick_Y), Robot.oi.DRIVER_GAMEPAD.getAxis(Gamepad.rightStick_Y));
+    	Robot.drivetrain.moveArcade(Robot.oi.DRIVER_GAMEPAD.getAxis(Gamepad.leftStick_Y), Robot.oi.DRIVER_GAMEPAD.getAxis(Gamepad.leftStick_X));
     }
 
     // Make this return true when this Command no longer needs to run execute()
