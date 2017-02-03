@@ -2,7 +2,7 @@
 package org.usfirst.frc.team6584.robot.subsystems;
 
 import org.usfirst.frc.team6584.robot.RobotMap;
-import org.usfirst.frc.team6584.robot.commands.GucciStick;
+import org.usfirst.frc.team6584.robot.commands.JoystickDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
@@ -25,17 +25,17 @@ public class DriveTrain extends Subsystem {
 	
 	public DriveTrain() {
 		/* Uncomment this for the practice robot*/
-		motorLeft1 = new VictorSP(RobotMap.motorLeft1);
-		motorRight1= new VictorSP(RobotMap.motorRight1);
-		motorLeft2 = new VictorSP(RobotMap.motorLeft2);
-		motorRight2= new VictorSP(RobotMap.motorRight2);
+//		motorLeft1 = new VictorSP(RobotMap.motorLeft1);
+//		motorRight1= new VictorSP(RobotMap.motorRight1);
+//		motorLeft2 = new VictorSP(RobotMap.motorLeft2);
+//		motorRight2= new VictorSP(RobotMap.motorRight2);
 		
 		/* Uncomment this for the actual robot*/
-//		motorLeft1 = new Spark(RobotMap.motorLeft1);
-//		motorRight1= new Spark(RobotMap.motorRight1);
-//		motorLeft2 = new Spark(RobotMap.motorLeft2);
-//		motorRight2= new Spark(RobotMap.motorRight2);
-		
+		motorLeft1 = new Spark(RobotMap.motorLeft1);
+		motorRight1= new Spark(RobotMap.motorRight1);
+		motorLeft2 = new Spark(RobotMap.motorLeft2);
+		motorRight2= new Spark(RobotMap.motorRight2);
+
 		drivetrain= new RobotDrive(motorLeft1, motorLeft2, motorRight1, motorRight2);
 		
 	}
@@ -54,7 +54,7 @@ public class DriveTrain extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new GucciStick());
+        setDefaultCommand(new JoystickDrive());
     }
 }
 

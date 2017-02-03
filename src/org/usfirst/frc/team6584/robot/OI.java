@@ -4,8 +4,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.team708.util.Gamepad;
-import org.usfirst.frc.team6584.robot.commands.SwagMove;
-import org.usfirst.frc.team6584.robot.commands.VeganWater;
+import org.usfirst.frc.team6584.robot.commands.AutoMove;
+import org.usfirst.frc.team6584.robot.commands.StopDrivetrain;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -24,9 +24,9 @@ public class OI {
 	private static final Button STOP_MOVING = new JoystickButton(DRIVER_GAMEPAD, STOP_MOVING_BUTTON);
 	
 	public OI() {
-		FORWARD.whenPressed(new SwagMove(1.0));
-		BACKWARD.whenPressed(new SwagMove(-1.0));
-		STOP_MOVING.whenPressed(new VeganWater());
+		FORWARD.whenPressed(new AutoMove(1.0, 0.0));
+		BACKWARD.whenPressed(new AutoMove(-1.0, 0.0));
+		STOP_MOVING.whenPressed(new StopDrivetrain());
 	}
 	
     //// CREATING BUTTONS
