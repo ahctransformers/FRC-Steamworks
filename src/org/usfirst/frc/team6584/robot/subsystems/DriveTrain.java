@@ -52,6 +52,9 @@ public class DriveTrain extends Subsystem {
 	public void SendToDashboard() {
 		SmartDashboard.putNumber("Gyro Rate", gyro.getRate());
 		SmartDashboard.putNumber("Gyro angle", gyro.getAngle());
+		SmartDashboard.putNumber("Encoder distance", encoder.getDistance());
+		SmartDashboard.putNumber("Encoder rate", encoder.getRate());
+		
 	}
 	
     // Put methods for controlling this subsystem

@@ -1,11 +1,13 @@
 
 package org.usfirst.frc.team6584.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team6584.robot.commands.AutoMove;
+import org.usfirst.frc.team6584.robot.commands.AutoMoveToDistance;
 import org.usfirst.frc.team6584.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -32,10 +34,16 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new AutoMove(0.0, 0.0));
-//        chooser.addObject("My Auto", new MyAutoCommand());
+        chooser.addDefault("Do Nothing", new AutoMove(0.0, 0.0));
+        chooser.addObject("Move Forward", new AutoMoveToDistance(1.0, 10.0));
+        
         SmartDashboard.putData("Auto mode", chooser);
+        SmartDashboard.putData(drivetrain);
+        
+        CameraServer.getInstance().startAutomaticCapture(0);
+        CameraServer.getInstance().startAutomaticCapture(1);
     }
+    
 	
 	/**
      * This function is called once each time the robot enters Disabled mode.

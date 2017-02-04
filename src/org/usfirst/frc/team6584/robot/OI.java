@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.team708.util.Gamepad;
-import org.usfirst.frc.team6584.robot.commands.AutoMove;
 import org.usfirst.frc.team6584.robot.commands.StopDrivetrain;
 
 /**
@@ -15,17 +14,11 @@ public class OI {
 	
 	public final static Gamepad DRIVER_GAMEPAD = new Gamepad(RobotMap.driverGamepad);
 	
-	private static final int FORWARD_BUTTON = Gamepad.button_Y;
-	private static final int BACKWARD_BUTTON = Gamepad.button_A;
-	private static final int STOP_MOVING_BUTTON = Gamepad.button_B;
+	private static final int STOP_MOVING_BUTTON = Gamepad.button_Back;
 	
-	private static final Button FORWARD = new JoystickButton(DRIVER_GAMEPAD, FORWARD_BUTTON);
-	private static final Button BACKWARD = new JoystickButton(DRIVER_GAMEPAD, BACKWARD_BUTTON);
 	private static final Button STOP_MOVING = new JoystickButton(DRIVER_GAMEPAD, STOP_MOVING_BUTTON);
 	
 	public OI() {
-		FORWARD.whenPressed(new AutoMove(1.0, 0.0));
-		BACKWARD.whenPressed(new AutoMove(-1.0, 0.0));
 		STOP_MOVING.whenPressed(new StopDrivetrain());
 	}
 	
