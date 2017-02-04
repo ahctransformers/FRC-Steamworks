@@ -48,6 +48,8 @@ public class Robot extends IterativeRobot {
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		
+	 drivetrain.SendToDashboard();
 	}
 
 	/**
@@ -82,6 +84,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        drivetrain.SendToDashboard();
     }
 
     public void teleopInit() {
@@ -91,12 +94,13 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
     }
-
+    
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        drivetrain.SendToDashboard();
     }
     
     /**

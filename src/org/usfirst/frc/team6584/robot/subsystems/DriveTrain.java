@@ -4,16 +4,22 @@ package org.usfirst.frc.team6584.robot.subsystems;
 import org.usfirst.frc.team6584.robot.RobotMap;
 import org.usfirst.frc.team6584.robot.commands.JoystickDrive;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class DriveTrain extends Subsystem {
+	Encoder encoder;
+	double distancePerPulse;
+	ADXRS450_Gyro gyro;
 	
 	
 	SpeedController motorLeft1;
@@ -38,6 +44,14 @@ public class DriveTrain extends Subsystem {
 
 		drivetrain= new RobotDrive(motorLeft1, motorLeft2, motorRight1, motorRight2);
 		
+		encoder=new Encoder(RobotMap.encoderA,RobotMap.encoderB);
+		gyro=new ADXRS450_Gyro();
+		distancePerPulse= (12);
+	}
+	
+	public void SendToDashboard() {
+		SmartDashboard.putNumber("Gyro Rate", gyro.getRate());
+		SmartDashboard.putNumber("Gyro angle", gyro.getAngle());
 	}
 	
     // Put methods for controlling this subsystem
@@ -52,6 +66,26 @@ public class DriveTrain extends Subsystem {
 		
 	}
 
+	public double getWheelRate() {
+		return encoder.getRate();
+	}
+	
+	public double getSwagDistance(){
+		return encoder.getDistance();
+	}
+	
+	public void resetEncoder() {
+		encoder.reset();
+	}
+	
+	public double getGucciAngle (){
+		return gyro.getAngle();
+	}
+	
+	public void resetGyro (){
+		gyro.reset();
+	}
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new JoystickDrive());
