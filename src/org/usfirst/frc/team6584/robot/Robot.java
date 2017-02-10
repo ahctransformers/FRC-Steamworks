@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team6584.robot.commands.AutoMove;
 import org.usfirst.frc.team6584.robot.commands.AutoMoveToDistance;
+import org.usfirst.frc.team6584.robot.commands.AutoSwerve;
 import org.usfirst.frc.team6584.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -35,7 +36,9 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         chooser = new SendableChooser();
         chooser.addDefault("Do Nothing", new AutoMove(0.0, 0.0));
-        chooser.addObject("Move Forward", new AutoMoveToDistance(1.0, 10.0));
+        chooser.addObject("Move 2 Peg", new AutoMoveToDistance(1.0, 108.0));
+        chooser.addObject("2016memes", new AutoSwerve(1.0,90.0));
+        chooser.addObject("Move 2 Base", new AutoMoveToDistance(1.0,117.6));
         
         SmartDashboard.putData("Auto mode", chooser);
         SmartDashboard.putData(drivetrain);
