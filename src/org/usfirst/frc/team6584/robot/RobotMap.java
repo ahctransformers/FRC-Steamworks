@@ -18,6 +18,7 @@ public class RobotMap {
 	public static final int motorRight2 = 3;
 	public static final int motor1=4;
 	
+	// DIO Ports
 	public static final int encoderA=0;
 	public static final int encoderB=1;
 
