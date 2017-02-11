@@ -6,9 +6,13 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team6584.robot.commands.AutoMove;
-import org.usfirst.frc.team6584.robot.commands.AutoMoveToDistance;
-import org.usfirst.frc.team6584.robot.commands.AutoSwerve;
+
+import org.usfirst.frc.team6584.robot.commands.autonomous.AutoMove;
+import org.usfirst.frc.team6584.robot.commands.autonomous.AutoMoveToDistance;
+import org.usfirst.frc.team6584.robot.commands.autonomous.AutoSwerve;
+import org.usfirst.frc.team6584.robot.commands.autonomous.ChaChaLeft;
+import org.usfirst.frc.team6584.robot.commands.autonomous.ChaChaRight;
+import org.usfirst.frc.team6584.robot.commands.autonomous.PegAndStop;
 import org.usfirst.frc.team6584.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6584.robot.subsystems.RollyPolly;
 
@@ -38,10 +42,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Do Nothing", new AutoMove(0.0, 0.0));
-        chooser.addObject("Move 2 Peg", new AutoMoveToDistance(1.0, 108.0));
-        chooser.addObject("2016memes", new AutoSwerve(1.0,90.0));
-        chooser.addObject("Move 2 Base", new AutoMoveToDistance(1.0,117.6));
+        createAutoChooser();
         
         SmartDashboard.putData("Auto mode", chooser);
         SmartDashboard.putData(drivetrain);
@@ -122,5 +123,15 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    public void createAutoChooser() {
+    	chooser.addDefault("Do Nothing", new AutoMove(0.0, 0.0));
+        chooser.addObject("Move 2 Peg", new AutoMoveToDistance(1.0, 108.0));
+        chooser.addObject("2016memes", new AutoSwerve(1.0,90.0));
+        chooser.addObject("Move 2 Base", new AutoMoveToDistance(1.0,117.6));
+        chooser.addObject("ChaChaLeft", new ChaChaLeft());
+        chooser.addObject("ChaChaRight", new ChaChaRight());
+        chooser.addObject("Peg and Stop", new PegAndStop());
     }
 }

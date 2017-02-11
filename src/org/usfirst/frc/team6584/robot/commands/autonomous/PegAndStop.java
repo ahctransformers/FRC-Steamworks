@@ -1,21 +1,15 @@
-package org.usfirst.frc.team6584.robot.commands;
+package org.usfirst.frc.team6584.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class ChaChaRight extends CommandGroup {
+public class PegAndStop extends CommandGroup {
 
-    public ChaChaRight() {
+    public PegAndStop() {
+    	addSequential(new AutoMoveToDistance(1.0,108.0));
     	
-    	
-    	addSequential(new AutoMoveToDistance(1.0,76.0));
-    	addSequential(new AutoSwerve(1.0,45.0));
-    	addSequential(new AutoMoveToDistance(1.0,42.0));
-    	addSequential(new AutoMoveToDistance(-1.0,42.0));
-    	addSequential(new AutoSwerve(1.0,-45.0));
-    	addSequential(new AutoMoveToDistance(1.0,24.0));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
