@@ -16,10 +16,11 @@ public class RobotMap {
     public static final int motorRight1 = 2;
 	public static final int motorLeft2 = 1;
 	public static final int motorRight2 = 3;
+	public static final int motor1=4;
 	
 	public static final int encoderA=0;
 	public static final int encoderB=1;
-	public static final int gyro=3000;
+
 	
     
     // If you are using multiple modules, make sure to define both the port

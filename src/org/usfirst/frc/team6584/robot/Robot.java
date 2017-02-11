@@ -10,6 +10,8 @@ import org.usfirst.frc.team6584.robot.commands.AutoMove;
 import org.usfirst.frc.team6584.robot.commands.AutoMoveToDistance;
 import org.usfirst.frc.team6584.robot.commands.AutoSwerve;
 import org.usfirst.frc.team6584.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6584.robot.subsystems.RollyPolly;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -24,6 +26,7 @@ public class Robot extends IterativeRobot {
 
 	public static final DriveTrain drivetrain = new DriveTrain();
 	public static OI oi;
+	public static final RollyPolly winch =new RollyPolly();
 
     Command autonomousCommand;
     SendableChooser chooser;
