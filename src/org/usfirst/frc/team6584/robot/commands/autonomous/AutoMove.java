@@ -12,6 +12,7 @@ import org.usfirst.frc.team6584.robot.Robot;
  */
 public class AutoMove extends Command {
 	
+	
 	double swagSpeed;
 	double swagTurn;
 

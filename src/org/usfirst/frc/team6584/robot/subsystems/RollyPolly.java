@@ -21,6 +21,9 @@ public class RollyPolly extends Subsystem {
 	public void climbRope() {
 		motor1.set(1.0);
 	}
+	public void descendRope(){
+		motor1.set(-1.0);
+	}
 	public void stopRope()  {
 		motor1.set(0.0);
 	}

@@ -31,6 +31,8 @@ public class Robot extends IterativeRobot {
 	public static final DriveTrain drivetrain = new DriveTrain();
 	public static OI oi;
 	public static final RollyPolly winch =new RollyPolly();
+	
+	// RollyPolly is the command for the spinning winch. Goes back and forth. That's literally it. There's literally a command for it if you look hard enough//
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -49,6 +51,7 @@ public class Robot extends IterativeRobot {
         
         CameraServer.getInstance().startAutomaticCapture(0);
         CameraServer.getInstance().startAutomaticCapture(1);
+        //we have 2 cameras. I guess you could call us...BICAMERAL(government joke)//
     }
     
 	
@@ -133,5 +136,6 @@ public class Robot extends IterativeRobot {
         chooser.addObject("ChaChaLeft", new ChaChaLeft());
         chooser.addObject("ChaChaRight", new ChaChaRight());
         chooser.addObject("Peg and Stop", new PegAndStop());
+        // smartdashboard has a chooser thingy so you can choose which commands you want for autonomous//
     }
 }

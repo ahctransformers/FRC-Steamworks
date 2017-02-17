@@ -17,10 +17,12 @@ public class RobotMap {
 	public static final int motorLeft2 = 1;
 	public static final int motorRight2 = 3;
 	public static final int motor1=4;
+	//motor1 is for the winch system mentioned in the RollyPolly command//
 	
 	// DIO Ports
 	public static final int encoderA=0;
 	public static final int encoderB=1;
+	// two encoders that someone decided to take off, *throws some salt*//
 
 	
     

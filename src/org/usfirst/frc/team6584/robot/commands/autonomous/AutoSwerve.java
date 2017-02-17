@@ -11,9 +11,11 @@ public class AutoSwerve extends Command {
 	double swagTurnSpeed;
 	double swAngle;
 	
+	
     public AutoSwerve(double swagTurnSpeed, double swAngle) {
     	this.swagTurnSpeed = swagTurnSpeed;
 		this.swAngle = swAngle;
+		requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time

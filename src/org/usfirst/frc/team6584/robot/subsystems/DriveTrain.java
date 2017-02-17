@@ -46,14 +46,14 @@ public class DriveTrain extends Subsystem {
 		
 		encoder=new Encoder(RobotMap.encoderA,RobotMap.encoderB);
 		gyro=new ADXRS450_Gyro();
-		distancePerPulse= (12);
+		distancePerPulse= (0.0527777778);
 	}
 	
 	public void SendToDashboard() {
 		SmartDashboard.putNumber("Gyro Rate", gyro.getRate());
-		SmartDashboard.putNumber("Gyro angle", gyro.getAngle());
-		SmartDashboard.putNumber("Encoder distance", encoder.getDistance());
-		SmartDashboard.putNumber("Encoder rate", encoder.getRate());
+		SmartDashboard.putNumber("Gyro angle",getGucciAngle());
+		SmartDashboard.putNumber("Encoder distance", getSwagDistance());
+		SmartDashboard.putNumber("Encoder rate", getWheelRate());
 		
 	}
 	
