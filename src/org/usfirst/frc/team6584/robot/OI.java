@@ -11,14 +11,12 @@ import org.usfirst.frc.team6584.robot.commands.StopDrivetrain;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	//this assigns the buttons lol//
+	
 	public final static Gamepad DRIVER_GAMEPAD = new Gamepad(RobotMap.driverGamepad);
 	
 	private static final int STOP_MOVING_BUTTON = Gamepad.button_Back;
 	
 	private static final Button STOP_MOVING = new JoystickButton(DRIVER_GAMEPAD, STOP_MOVING_BUTTON);
-	
-	
 	
 	public OI() {
 		STOP_MOVING.whenPressed(new StopDrivetrain());
