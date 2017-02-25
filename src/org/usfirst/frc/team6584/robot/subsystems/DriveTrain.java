@@ -30,11 +30,6 @@ public class DriveTrain extends Subsystem {
 	RobotDrive drivetrain;
 	
 	public DriveTrain() {
-		/* Uncomment this for the practice robot*/
-//		motorLeft1 = new VictorSP(RobotMap.motorLeft1);
-//		motorRight1= new VictorSP(RobotMap.motorRight1);
-//		motorLeft2 = new VictorSP(RobotMap.motorLeft2);
-//		motorRight2= new VictorSP(RobotMap.motorRight2);
 		
 		/* Uncomment this for the actual robot*/
 		motorLeft1 = new Spark(RobotMap.motorLeft1);
