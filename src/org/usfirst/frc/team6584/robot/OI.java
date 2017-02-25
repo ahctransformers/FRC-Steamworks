@@ -5,21 +5,30 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.team708.util.Gamepad;
 import org.usfirst.frc.team6584.robot.commands.StopDrivetrain;
+import org.usfirst.frc.team6584.robot.commands.rollypolly.RollyUp;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	
+	//this assigns the buttons lol//
 	public final static Gamepad DRIVER_GAMEPAD = new Gamepad(RobotMap.driverGamepad);
 	
-	private static final int STOP_MOVING_BUTTON = Gamepad.button_Back;
+	// bUTTON aSSIGNMENTS
+	private static final int ROLLYPOLLY_ON_BUTTON = 6;
+	private static final int ROLLYPOLLY_STOP_BUTTON = 4;
+	private static final int STOP_MOVING_BUTTON = 2;
+	
 	
 	private static final Button STOP_MOVING = new JoystickButton(DRIVER_GAMEPAD, STOP_MOVING_BUTTON);
+	private static final Button ROLLYPOLLY_ON = new JoystickButton(DRIVER_GAMEPAD, ROLLYPOLLY_ON_BUTTON);
+	private static final Button ROLLYPOLLY_STOP = new JoystickButton(DRIVER_GAMEPAD,ROLLYPOLLY_STOP_BUTTON);
 	
 	public OI() {
 		STOP_MOVING.whenPressed(new StopDrivetrain());
+		ROLLYPOLLY_ON.whenPressed(new RollyUp());
+		
 	}
 	
     //// CREATING BUTTONS

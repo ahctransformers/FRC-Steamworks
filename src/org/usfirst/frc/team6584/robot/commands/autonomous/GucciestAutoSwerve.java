@@ -1,47 +1,51 @@
-package org.usfirst.frc.team6584.robot.commands;
+package org.usfirst.frc.team6584.robot.commands.autonomous;
 
-import org.team708.util.Gamepad;
+import org.team708.util.Math708;
 import org.usfirst.frc.team6584.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class JoystickDrive extends Command {
-
-    public JoystickDrive() {
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.drivetrain);
+public class GucciestAutoSwerve extends Command {
+	double swagTurnSpeed;
+	double swAngle;
+	
+	
+    public GucciestAutoSwerve(double swAngle) {
+    	requires(Robot.drivetrain);
+    	
+    	
+		this.swAngle = swAngle;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.drivetrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.oi.DRIVER_GAMEPAD.getButton(3)) {
-    		Robot.drivetrain.setMax(.4);
-    	} else {
-    		Robot.drivetrain.setMax(1);
-    	}
-    	Robot.drivetrain.moveArcade(Robot.oi.DRIVER_GAMEPAD.getAxis(Gamepad.leftStick_Y), -Robot.oi.DRIVER_GAMEPAD.getAxis(Gamepad.leftStick_X));
+    	this.swagTurnSpeed = Math708.getClippedPercentError(Robot.drivetrain.getGucciAngle(), swAngle, 0.5, 1.0);
+    	
+    	Robot.drivetrain.moveArcade(0.0, swagTurnSpeed);
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Math.abs(Robot.drivetrain.getGucciAngle()) >= Math.abs(swAngle);
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.drivetrain.moveTank(0.0,0.0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

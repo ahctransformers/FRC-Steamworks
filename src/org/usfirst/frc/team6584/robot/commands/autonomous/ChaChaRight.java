@@ -10,14 +10,21 @@ public class ChaChaRight extends CommandGroup {
 
     public ChaChaRight() {
     	
-    	
-    	addSequential(new AutoMoveToDistance(1.0,76.0));
-    	addSequential(new AutoSwerve(1.0,45.0));
-    	addSequential(new AutoMoveToDistance(1.0,42.0));
+    	addSequential(new AutoMoveToDistance(0.5,76.0));
+    	addSequential(new AutoSwerve(-0.5,-45.0));
+    	addSequential(new AutoMoveToDistance(0.5,42.0));
     	addSequential(new WaitCommand(1.0));
-    	addSequential(new AutoMoveToDistance(-1.0,42.0));
-    	addSequential(new AutoSwerve(1.0,-42.0));
-    	addSequential(new AutoMoveToDistance(1.0,24.0));
+    	addSequential(new AutoMoveToDistance(-0.5,42.0));
+    	addSequential(new AutoSwerve(0.5,45.0));
+    	addSequential(new AutoMoveToDistance(0.5,42.0));
+    	
+//    	addSequential(new AutoMoveToDistance(0.4,58.0));
+//    	addSequential(new AutoSwerve(0.4,45.0));
+//    	addSequential(new AutoMoveToDistance(0.4,42.0));
+//    	addSequential(new WaitCommand(1.0));
+//    	addSequential(new AutoMoveToDistance(-0.4,42.0));
+//    	addSequential(new AutoSwerve(0.4,-42.0));
+//    	addSequential(new AutoMoveToDistance(0.4,24.0));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

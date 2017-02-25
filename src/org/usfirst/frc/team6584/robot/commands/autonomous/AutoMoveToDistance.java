@@ -2,6 +2,7 @@
 package org.usfirst.frc.team6584.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6584.robot.Robot;
 
@@ -11,10 +12,14 @@ import org.usfirst.frc.team6584.robot.Robot;
  * @params speedforward, speedrotation
  */
 public class AutoMoveToDistance extends Command {
+	private static final double kAngleSetpoint = 0.0;
+	private static final double kP = 0.05; // propotional turning constant
 	
 	double swagSpeed;
 	double swagTurn;
 	double swagDistance;
+	
+	double turningValue;
 
     public AutoMoveToDistance(double swagSpeed,double swagDistance) {
         // Use requires() here to declare subsystem dependencies
@@ -28,16 +33,20 @@ public class AutoMoveToDistance extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.drivetrain.resetEncoder();
+    	Robot.drivetrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.moveArcade(swagSpeed, swagTurn);
+    	turningValue = (kAngleSetpoint - Robot.drivetrain.getGucciAngle()) * kP;
+    
+    	Robot.drivetrain.moveArcade(swagSpeed, -turningValue);	// Negative when on actual robot
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.drivetrain.getSwagDistance() >= swagDistance;
+    	return Math.abs(Robot.drivetrain.getSwagDistance()) >= Math.abs(swagDistance);
+    	
     }
 
     // Called once after isFinished returns true

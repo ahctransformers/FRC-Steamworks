@@ -13,26 +13,25 @@ public class AutoSwerve extends Command {
 	
 	
     public AutoSwerve(double swagTurnSpeed, double swAngle) {
+    	requires(Robot.drivetrain);
+    	
     	this.swagTurnSpeed = swagTurnSpeed;
 		this.swAngle = swAngle;
-		requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.drivetrain.resetGyro();
-    	
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.moveArcade(swagTurnSpeed, swAngle);
+    	Robot.drivetrain.moveArcade(0.0, swagTurnSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.drivetrain.getGucciAngle() >= swAngle;
+        return Math.abs(Robot.drivetrain.getGucciAngle()) >= Math.abs(swAngle);
     }
 
     // Called once after isFinished returns true
